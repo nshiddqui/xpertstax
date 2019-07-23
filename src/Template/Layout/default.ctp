@@ -1,57 +1,52 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- */
-
-$cakeDescription = 'CakePHP: the rapid development php framework';
-?>
 <!DOCTYPE html>
 <html>
-<head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
-
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('style.css') ?>
-
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
-</head>
-<body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
-            </ul>
+    <head>
+        <?= $this->Html->charset() ?>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <?= $this->Html->meta('icon') ?>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <?= $this->fetch('meta') ?>
+        <meta name="description" content="">
+        <title>
+            <?= $this->fetch('title') ?>
+        </title>
+        <!--?= $this->Html->css('https://fonts.googleapis.com/css?family=Tinos:400,700,400italic,700italic') ?-->
+        <?= $this->Html->css('bootstrap.min') ?>
+        <?= $this->Html->css('style') ?>
+        <?= $this->Html->css('style_navigation/stellarnav') ?>
+        <?= $this->Html->css('flex_slider/flexslider') ?>
+        <?= $this->fetch('css') ?>
+        <?= $this->Html->script('jquery.min') ?>
+        <?= $this->Html->script('popper.min') ?>
+        <?= $this->Html->script('bootstrap.min') ?>
+        <?= $this->Html->script('style_navigation/stellarnav') ?>
+        <?= $this->fetch('script'); ?>
+        <style>
+            /* styles for this sample only */
+            *{ margin: 0; padding: 0; }
+            body { font-family: 'Exo 2', sans-serif;  color: #555; }
+            .header { text-align: center; }
+            .header a { display: inline-grid;  text-decoration: none; color: #555; }
+            @media only screen and (max-width : 1000px) {
+                .stellarnav > ul > li > a { padding: 20px 23px; }
+            }
+            #header-search{
+                position: absolute;
+                top: 1px;
+                right: 10px;
+                display: inline-grid
+            }
+        </style>
+    </head>
+    <body>
+        <?= $this->element('layout/public_header'); ?>
+        <?= $this->Flash->render() ?>
+        <div id="main">
+            <div class="container">
+                <?= $this->fetch('content') ?>
+            </div>
         </div>
-    </nav>
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
-    </div>
-    <footer>
-    </footer>
-</body>
+        <?= $this->element('layout/public_footer'); ?>
+        <?= $this->fetch('scriptBottom'); ?>
+    </body>
 </html>
