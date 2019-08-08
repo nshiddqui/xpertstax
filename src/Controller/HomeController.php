@@ -3,7 +3,12 @@
 namespace App\Controller;
 
 class HomeController extends AppController {
-
+    
+    public function beforeFilter(\Cake\Event\Event $event) {
+        parent::beforeFilter($event);
+	    $this->Auth->allow(); 
+    }
+    
     public $paginate = [
         'limit' => 2,
     ];

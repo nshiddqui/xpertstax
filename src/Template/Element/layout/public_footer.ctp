@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-md-3">
                 <h5>Our Mission</h5>
-                <p>The mission of the firm, Xperts Tax is to excel services in the fields of Financial Consultancy, Accounting, Auditing, Project Consultancy, MIS, Taxation, Corporate, Industrial and Allied Laws, Management Consultancy Services etc.<a href="contact.php">Read More</a> </p>
+                <p>The mission of the firm, Xperts Tax is to excel services in the fields of Financial Consultancy, Accounting, Auditing, Project Consultancy, MIS, Taxation, Corporate, Industrial and Allied Laws, Management Consultancy Services etc.<?= $this->Html->link('Read More',['controller'=>'Home','action'=>'contact_us'])?> </p>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <h5>Site Map</h5>
                 <ul>
                     <li><?= $this->Html->link('Login', ['controller' => 'User', 'action' => 'index', 'prefix' => 'admin']) ?></li>
@@ -16,7 +16,7 @@
                 </ul>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <h5>Head Office </h5>
                 <P>
                 <h6>Xperts Tax </h6>
@@ -25,12 +25,24 @@
                 <a href="mailto:xpertstax@yahoo.com">xpertstax@yahoo.com</a></P>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <h5>Branch Office </h5>
                 <P>
                 <h6>Xperts Tax</h6>
                 <strong>Address: </strong>52/45 Parbhat Road<br>Karol Bagh<br>New Delhi-05<br>
                 <strong>Tel:</strong>+91 8802933545<br>
+                <a href="mailto:xpertstax@yahoo.com">xpertstax@yahoo.com</a></P>
+            </div>
+            
+            <div class="col-md-3">
+                <h5>Branch Office </h5>
+                <P>
+                <h6>Xperts Tax</h6>
+                <strong>Address: </strong>Office No. 208, 2nd Floor, 
+                Shubhraj Complax, Rang Puri Road, Labour Chowk<br>
+                    New Delhi 110037<br>
+                <strong>Tel:</strong>+91 8802933545,+91 9654540332
+                <br>
                 <a href="mailto:xpertstax@yahoo.com">xpertstax@yahoo.com</a></P>
             </div>
             <div class="clearfix"></div>
@@ -59,9 +71,9 @@
     jQuery(document).ready(function ($) {
         jQuery('.stellarnav').stellarNav({
             theme: '#222',
-            breakpoint: 1183,
+            breakpoint: 1142,
             position: 'left',
-            phoneBtn: '18009997788',
+            phoneBtn: '8447518666',
             locationBtn: 'https://www.google.com/maps'
         });
     });

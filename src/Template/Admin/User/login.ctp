@@ -39,7 +39,7 @@
                                 <div class="account-box">
                                     <div class="account-logo-box">
                                         <h2 class="text-uppercase text-center">
-                                            <a href="index.html" class="text-success">
+                                            <a href="/" class="text-success">
                                                 <span><?= $this->Html->image('logo.png', ['height' => 140]) ?></span>
                                             </a>
                                         </h2>

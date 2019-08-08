@@ -49,6 +49,7 @@ class AppController extends Controller {
             'loginAction' => [
                 'controller' => 'User',
                 'action' => 'login',
+                'prefix'=>'admin'
             ],
             'authError' => 'Did you really think you are allowed to see that?',
             'authenticate' => [
@@ -56,7 +57,8 @@ class AppController extends Controller {
                     'fields' => ['username' => 'username', 'password' => 'password']
                 ]
             ],
-            'storage' => 'Session'
+            'storage' => 'Session',
+            'unauthorizedRedirect' => false
         ]);
 
         /*
@@ -69,7 +71,7 @@ class AppController extends Controller {
     public function beforeFilter(Event $event) {
         $this->set('queryParams', $this->request->getAttribute('params'));
         if ($this->request->getParam('prefix')) {
-            $this->viewBuilder()->layout('auth_layout');
+            $this->viewBuilder()->setLayout('auth_layout');
         }
         $userDetails = $this->Auth->user();
         if ($userDetails) {

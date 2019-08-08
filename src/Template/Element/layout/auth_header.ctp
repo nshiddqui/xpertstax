@@ -30,7 +30,7 @@
                         <h5 class="text-overflow"><small>Welcome ! <?= $authUser['username'] ?></small> </h5>
                     </div>
                     <!-- item-->
-                    <?= $this->Html->link('<i class="mdi mdi-power"></i> <span>Logout</span>', ['controller' => 'User', 'action' => 'logout', 'prefix' => false], ['class' => 'dropdown-item notify-item', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class="mdi mdi-power"></i> <span>Logout</span>', ['controller' => 'User', 'action' => 'logout'], ['class' => 'dropdown-item notify-item', 'escape' => false]) ?>
                 </div>
             </li>
         </ul>
@@ -59,7 +59,7 @@
                     <?= $this->Html->link('<i class="fa fa-book"></i> <span>Blogger</span>', ['controller' => 'User', 'action' => 'blog'], ['escape' => false]) ?>
                 </li>
                 <li>
-                    <?= $this->Html->link('<i class="mdi mdi-power"></i> <span>Logout</span>', ['controller' => 'Users', 'action' => 'logout', 'prefix' => false], ['escape' => false]) ?>
+                    <?= $this->Html->link('<i class="mdi mdi-power"></i> <span>Logout</span>', ['controller' => 'User', 'action' => 'logout'], ['escape' => false]) ?>
                 </li>
 
             </ul>

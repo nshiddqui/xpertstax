@@ -11,7 +11,7 @@
                 'I am self employed, and run a sole proprietorship firm',
                 'I am an employer having a large number of employees'
                     ], ['empty' => 'I am a salaried employee',
-                'onchange' => 'location = "' . $this->Url->build(['controller' => 'services', 'action' => 'incometax']) . '";',]
+                'onchange' => 'location = "' . $this->Url->build(['controller' => 'services', 'action' => 'incometax']) . '";','style'=>'height:42px']
             );
             ?>
         </div>

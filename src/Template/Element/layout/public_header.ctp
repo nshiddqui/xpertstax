@@ -1,6 +1,9 @@
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
     var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    Tawk_API.onLoad = function(){
+    Tawk_API.addTags(['hello', 'world'], function(error){});
+};
     (function () {
         var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
         s1.async = true;
@@ -17,7 +20,7 @@
         $this->Html->image("logo.png", [
             "alt" => "XpertsTax",
             'url' => ['controller' => 'Home', 'action' => 'index'],
-            'style' => 'height:106px'
+            'style' => 'height:65px'
         ]);
         ?>
     </div>
@@ -144,7 +147,7 @@
     </div>
 </header>
 <div id="contact-header" style="padding:5px;">
-        <div class="width-container" style="width:100%;"><div id="contact-header-text" style="padding-left:0px; margin-left:0px;font-size: 20px;"><marquee onmouseover="this.stop();" onmouseout="this.start();"><strong>Feel free to call</strong> <em><a href="javascript:void(0)">Support & Help</a></em>  &nbsp;&nbsp; <!--<strong></strong>--> <em>+91 8802933545, +91 8860293328, +91 9654540332</em></marquee></div></div><!-- close .width-container -->
+        <div class="width-container" style="width:100%;"><div id="contact-header-text" style="padding-left:0px; margin-left:0px;font-size: 20px;color: #fffffffa;"><marquee onmouseover="this.stop();" onmouseout="this.start();"><strong>Feel free to call</strong> <em><a href="javascript:void(0)">Support & Help</a></em>  &nbsp;&nbsp; <!--<strong></strong>--> <em>+91 8802933545, +91 8860293328, +91 9654540332</em></marquee></div></div><!-- close .width-container -->
 </div>
 
 <div id="page-title">

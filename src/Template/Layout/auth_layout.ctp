@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="SHORTCUT ICON" href="/img/logo.png"/> 
         <?= $this->Html->charset() ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?= $this->Html->meta('icon') ?>
@@ -8,7 +9,7 @@
         <?= $this->fetch('meta') ?>
         <meta name="description" content="">
         <title>
-            <?= $this->fetch('title') ?>
+            XpertsTax: <?= $this->fetch('title') ?>
         </title>
         <!-- C3 charts css -->
         <?= $this->Html->css('/plugins/c3/c3.min') ?>

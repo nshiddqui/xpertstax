@@ -6,6 +6,11 @@ use App\Controller\AppController;
 
 class ServicesController extends AppController {
 
+    public function beforeFilter(\Cake\Event\Event $event) {
+        parent::beforeFilter($event);
+	    $this->Auth->allow(); 
+    }
+    
     public function index() {
         
     }

@@ -126,7 +126,7 @@ a.pinterest-ico .genericon, a.dribbble-ico .genericon, a.wordpress-ico .generico
 
 
 /* Page Title and Address Bar Background */
-#contact-header, #page-title {background-color:#345489;}
+#contact-header, #page-title {background-color: #656363;}
 
 
 /* Body Background */
@@ -333,7 +333,7 @@ body #logo img { height: auto; }
 	background-color:#ffffff; 
 }
 #sidebar .content-container-anchor { padding-bottom:1px;}
-.overlay-container-anchor { position:relative; top:-40px; margin-bottom:0px; z-index:5;}
+.overlay-container-anchor { position:relative; top:6px; margin-bottom:0px; z-index:5;}
 
 #content-container {float:left; width:67.5%;}
 #sidebar {float:right; width:30%;}
