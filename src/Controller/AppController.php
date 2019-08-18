@@ -29,6 +29,10 @@ use Cake\Event\Event;
  */
 class AppController extends Controller {
 
+    public $permission = [
+        'Sales'
+    ];
+
     /**
      * Initialization hook method.
      *
@@ -44,17 +48,20 @@ class AppController extends Controller {
         $this->loadComponent('RequestHandler', [
             'enableBeforeRedirect' => false,
         ]);
+        $this->loadComponent('Paginator', [
+            'className' => 'MyPaginate'
+        ]);
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
             'loginAction' => [
                 'controller' => 'User',
                 'action' => 'login',
-                'prefix'=>'admin'
+                'prefix' => 'admin'
             ],
             'authError' => 'Did you really think you are allowed to see that?',
             'authenticate' => [
                 'Form' => [
-                    'fields' => ['username' => 'username', 'password' => 'password']
+                    'fields' => ['username' => 'pan_number', 'password' => 'password']
                 ]
             ],
             'storage' => 'Session',

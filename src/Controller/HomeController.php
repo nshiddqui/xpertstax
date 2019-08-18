@@ -10,7 +10,7 @@ class HomeController extends AppController {
     }
     
     public $paginate = [
-        'limit' => 2,
+        'limit' => 5,
     ];
 
     public function index() {

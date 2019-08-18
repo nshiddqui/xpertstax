@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,26 +44,38 @@
                                                 <span><?= $this->Html->image('logo.png', ['height' => 140]) ?></span>
                                             </a>
                                         </h2>
-                                        <?= $this->Flash->render() ?>
-                                        <h5 class="text-uppercase font-bold">Log In</h5>
-                                        <p class="m-b-0">Login to your Admin account</p>
+                                        <h5 class="text-uppercase font-bold">Register</h5>
+                                        <p class="m-b-0">Get access to our admin panel</p>
                                     </div>
                                     <div class="account-content">
-                                        <?= $this->Form->create('User', ['class' => 'form-horizontal', 'templates' => false]) ?>
+                                        <?= $this->Form->create($user, ['class' => 'form-horizontal', 'templates' => false]) ?>
+                                        <?= $this->Form->control('company_name') ?>
                                         <?= $this->Form->control('pan_number') ?>
                                         <?= $this->Form->control('password', ['type' => 'password']) ?>
-                                        <?= $this->Form->button('Log In') ?>
+                                        <div class="form-group row m-b-20">
+                                            <div class="col-12">
+
+                                                <div class="checkbox checkbox-success">
+                                                    <input id="remember" type="checkbox" checked="">
+                                                    <label for="remember">
+                                                        I accept <a href="javascript:void(0)">Terms and Conditions</a>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <?= $this->Form->button('Register') ?>
                                         <?= $this->Form->end() ?>
                                         <div class="row m-t-50">
-                                            <div class="col-sm-12 text-center">
-                                                <p class="text-muted">Don't have an account? <?= $this->Html->link('Sign Up', ['controller' => 'User', 'action' => 'register'], ['class' => 'text-dark font-bold']) ?></p>
+                                            <div class="col-12 text-center">
+                                                <p class="text-muted">Already have an account?  <?= $this->Html->link('Log In', ['controller' => 'User', 'action' => 'login'], ['class' => 'text-dark font-bold']) ?></p>
                                             </div>
                                         </div>
 
                                     </div>
                                 </div>
+                                <!-- end card-box-->
                             </div>
-                            <!-- end card-box-->
 
 
                         </div>
@@ -73,8 +86,6 @@
             </div>
         </section>
         <!-- END HOME -->
-
-
 
         <script>
             var resizefunc = [];
@@ -96,3 +107,4 @@
 
     <!-- Mirrored from coderthemes.com/adminox/default/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Apr 2019 04:15:40 GMT -->
 </html>
+

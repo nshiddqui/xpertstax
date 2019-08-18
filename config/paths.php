@@ -87,3 +87,15 @@ define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'vendor' . DS . 'cakephp' . DS . 'c
  */
 define('CORE_PATH', CAKE_CORE_INCLUDE_PATH . DS);
 define('CAKE', CORE_PATH . 'src' . DS);
+
+/*
+ * Documents Root path
+ */
+define('DOC_ROOT',WWW_ROOT.'/documents/');
+define('DOC_PATH','/documents/');
+
+/*
+ * Blogs Root path
+ */
+define('BLOG_ROOT',WWW_ROOT.'/img/blogs/');
+define('BLOG_PATH','/blogs/');

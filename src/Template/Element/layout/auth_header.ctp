@@ -27,7 +27,7 @@
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
                     <!-- item-->
                     <div class="dropdown-item noti-title">
-                        <h5 class="text-overflow"><small>Welcome ! <?= $authUser['username'] ?></small> </h5>
+                        <h5 class="text-overflow"><small>Welcome ! <?= $authUser['user_detail']['first_name'] ?></small> </h5>
                     </div>
                     <!-- item-->
                     <?= $this->Html->link('<i class="mdi mdi-power"></i> <span>Logout</span>', ['controller' => 'User', 'action' => 'logout'], ['class' => 'dropdown-item notify-item', 'escape' => false]) ?>
@@ -53,11 +53,35 @@
             <ul class="metismenu" id="side-menu">
                 <li class="menu-title">Navigation</li>
                 <li>
-                    <?= $this->Html->link('<i class="fa fa-envelope"></i> <span>Files</span>', ['controller' => 'User', 'action' => 'file'], ['escape' => false]) ?>
+                    <?= $this->Html->link('<i class="fa fa-shopping-cart"></i> <span>Sales</span><span class="menu-arrow"></span>', 'javascript:void(0)', ['escape' => false]) ?>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><?= $this->Html->link('List Sales', ['controller' => 'Sales', 'action' => 'index']) ?></li>
+                        <li><?= $this->Html->link('Add Sales', ['controller' => 'Sales', 'action' => 'add']) ?></li>
+                    </ul>
                 </li>
-                <li>
-                    <?= $this->Html->link('<i class="fa fa-book"></i> <span>Blogger</span>', ['controller' => 'User', 'action' => 'blog'], ['escape' => false]) ?>
-                </li>
+                <?php if ($authUser['role'] == 0) { ?>
+                    <li>
+                        <?= $this->Html->link('<i class="fa fa-users"></i> <span>Users</span><span class="menu-arrow"></span>', 'javascript:void(0)', ['escape' => false]) ?>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li><?= $this->Html->link('List Users', ['controller' => 'Users', 'action' => 'index']) ?></li>
+                            <li><?= $this->Html->link('Add Users', ['controller' => 'Users', 'action' => 'add']) ?></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <?= $this->Html->link('<i class="fa fa-envelope"></i> <span>Files</span><span class="menu-arrow"></span>', ['javascript:void(0)'], ['escape' => false]) ?>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li><?= $this->Html->link('List Documents', ['controller' => 'Documents', 'action' => 'index']) ?></li>
+                            <li><?= $this->Html->link('Add Documents', ['controller' => 'Documents', 'action' => 'add']) ?></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <?= $this->Html->link('<i class="fa fa-book"></i> <span>Blogger</span><span class="menu-arrow"></span>', 'javascript:void(0)', ['escape' => false]) ?>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li><?= $this->Html->link('List Blogs', ['controller' => 'Blogs', 'action' => 'index']) ?></li>
+                            <li><?= $this->Html->link('Add Blogs', ['controller' => 'Blogs', 'action' => 'add']) ?></li>
+                        </ul>
+                    </li>
+                <?php } ?>
                 <li>
                     <?= $this->Html->link('<i class="mdi mdi-power"></i> <span>Logout</span>', ['controller' => 'User', 'action' => 'logout'], ['escape' => false]) ?>
                 </li>

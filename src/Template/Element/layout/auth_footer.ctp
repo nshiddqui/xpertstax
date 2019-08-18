@@ -25,3 +25,18 @@
 <!-- App js -->
 <?= $this->Html->script('jquery.core') ?>
 <?= $this->Html->script('jquery.app') ?>
+<?= $this->Html->css('/plugins/datatables/dataTables.bootstrap4.min') ?>
+<?= $this->Html->script('/plugins/datatables/jquery.dataTables.min') ?>
+<?= $this->Html->script('/plugins/datatables/dataTables.bootstrap4.min') ?>
+<script>
+    $(document).ready(function () {
+        $('table[data-plugins="data-tables"]').each(function () {
+            $(this).DataTable({
+                'processing': true,
+                columnDefs: [
+                    {orderable: false, targets: -1}
+                ]
+            });
+        });
+    });
+</script>

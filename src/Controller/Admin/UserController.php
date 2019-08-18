@@ -7,6 +7,11 @@ use Cake\ORM\TableRegistry;
 
 class UserController extends AppController {
 
+    public function beforeFilter(\Cake\Event\Event $event) {
+        parent::beforeFilter($event);
+        $this->Auth->allow(['login', 'register']);
+    }
+
     public function login() {
         $this->viewBuilder()->setLayout(false);
         $usersess = $this->Auth->user();
@@ -16,16 +21,41 @@ class UserController extends AppController {
             if ($this->request->is('post')) {
                 $user = $this->Auth->identify();
                 if ($user) {
+                    $this->loadModel('Users');
+                    $user = $this->Users->get($user['id'], ['contain' => 'UserDetails'])->toArray();
                     $this->Auth->setUser($user);
                     return $this->redirect(['action' => 'index', 'prefix' => 'admin']);
                 }
-                $this->Flash->error(__('Invalid username or password, try again'));
+                $this->Flash->error(__('Invalid pan number or password, try again'));
             }
         }
     }
 
     public function index() {
         
+    }
+
+    public function register() {
+        $this->viewBuilder()->setLayout(false);
+        $this->loadModel('Users');
+        $user = $this->Users->newEntity();
+        if ($this->request->is('post')) {
+            $data = array_merge($this->request->getData(), [
+                'user_detail' => [
+                    'first_name' => '',
+                    'last_name' => ''
+                ]
+            ]);
+            $user = $this->Users->patchEntity($user, $data, ['associated' => ['UserDetails']]);
+            if ($this->Users->save($user)) {
+                $user = $this->Users->get($user->id, ['contain' => 'UserDetails'])->toArray();
+                $this->Auth->setUser($user);
+                $this->Flash->success(__('The user has been saved.'));
+                return $this->redirect(['action' => 'index', 'prefix' => 'admin']);
+            }
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+        }
+        $this->set(compact('user'));
     }
 
     public function logout() {

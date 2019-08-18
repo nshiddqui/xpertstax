@@ -18,7 +18,7 @@
         <?= $this->Html->css('icons') ?>
         <?= $this->Html->css('metismenu.min') ?>
         <?= $this->Html->css('style_user') ?>
-
+        <?= $this->Html->css('/plugins/spinkit/spinkit') ?>
         <?= $this->fetch('css') ?>
         <!-- Custom box css -->
         <link href="/plugins/custombox/css/custombox.min.css" rel="stylesheet">
@@ -36,6 +36,7 @@
                 <!-- Start content -->
                 <div class="content">
                     <div class="container-fluid">
+                        <?= $this->Flash->render() ?>
                         <?= $this->fetch('content') ?>
                     </div> <!-- container -->
                 </div> <!-- content -->
