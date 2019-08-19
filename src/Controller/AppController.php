@@ -44,7 +44,8 @@ class AppController extends Controller {
      */
     public function initialize() {
         parent::initialize();
-
+        $this->loadComponent('Csrf');
+        $this->loadComponent('Security');
         $this->loadComponent('RequestHandler', [
             'enableBeforeRedirect' => false,
         ]);
@@ -82,9 +83,18 @@ class AppController extends Controller {
         }
         $userDetails = $this->Auth->user();
         if ($userDetails) {
+            $this->_isAllowToUesd($userDetails);
             $this->set('authUser', $this->Auth->user());
         }
         parent::beforeFilter($event);
+    }
+
+    public function _isAllowToUesd($user) {
+        if ($this->request->getParam('controller') != "Users" || $this->request->getParam('action') != "edit") {
+            if ($user['details_field'] != 1) {
+                $this->redirect(['controller' => 'Users', 'action' => 'edit']);
+            }
+        }
     }
 
 }

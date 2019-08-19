@@ -64,6 +64,10 @@ class UsersController extends AppController {
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function edit($id = null) {
+        if ($id == null) {
+            $this->set('basic_input', true);
+            $id = $this->Auth->user('id');
+        }
         $user = $this->Users->get($id, [
             'contain' => ['UserDetails']
         ]);

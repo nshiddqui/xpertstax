@@ -5,9 +5,13 @@
             <?= $this->Form->create($user) ?>
             <legend><?= __('Edit User') ?></legend>
             <?php
-            echo $this->Form->label('role', 'Select Role');
-            echo $this->Form->select('role', [0 => 'Admin', 1 => 'Client']);
-            echo $this->Form->control('pan_number');
+            if(!isset($basic_input) || $basic_input!==true){
+                echo $this->Form->label('role', 'Select Role');
+                echo $this->Form->select('role', [0 => 'Admin', 1 => 'Client']);
+                echo $this->Form->control('pan_number');
+            }else{
+                echo $this->Form->control('pan_number',['disabled'=>true,'name'=>false]);
+            }
             echo $this->Form->control('user_detail.first_name');
             echo $this->Form->control('user_detail.last_name');
             ?>

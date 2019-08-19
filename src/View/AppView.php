@@ -41,6 +41,8 @@ class AppView extends View {
         ]);
         $this->loadHelper('Form', [
             'templates' => 'app_form',
+            'autoSetCustomValidity'=>true,
+            'errorClass' => 'alert-danger',
         ]);
     }
 
