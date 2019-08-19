@@ -24,7 +24,7 @@ class UserController extends AppController {
                     $this->loadModel('Users');
                     $user = $this->Users->get($user['id'], ['contain' => 'UserDetails'])->toArray();
                     $this->Auth->setUser($user);
-                    return $this->redirect(['action' => 'index', 'prefix' => 'admin']);
+                    return $this->redirect(['controller' => 'Dashboard', 'action' => 'index', 'prefix' => 'admin']);
                 }
                 $this->Flash->error(__('Invalid pan number or password, try again'));
             }
@@ -40,9 +40,11 @@ class UserController extends AppController {
         $this->loadModel('Users');
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
+            $parts = explode("@", $this->request->getData());
+            $first_name = $parts[0];
             $data = array_merge($this->request->getData(), [
                 'user_detail' => [
-                    'first_name' => '',
+                    'first_name' => $first_name,
                     'last_name' => ''
                 ]
             ]);
@@ -50,8 +52,8 @@ class UserController extends AppController {
             if ($this->Users->save($user)) {
                 $user = $this->Users->get($user->id, ['contain' => 'UserDetails'])->toArray();
                 $this->Auth->setUser($user);
-                $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'index', 'prefix' => 'admin']);
+                $this->Flash->success(__('Thank you for registered with us.'));
+                return $this->redirect(['controller' => 'Dashboard', 'action' => 'index', 'prefix' => 'admin']);
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
@@ -60,87 +62,6 @@ class UserController extends AppController {
 
     public function logout() {
         return $this->redirect($this->Auth->logout());
-    }
-
-    public function file() {
-        if ($this->request->is('post')) {
-            $file = $this->request->getData('files');
-            $fileName = time();
-            $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-//set file name with time for unique file name
-            $fileName = $fileName . '.' . $ext;
-            $path = '/download/documents';
-//set file path for server disk
-            $uploadPath = WWW_ROOT . $path;
-            if (!is_dir($uploadPath)) {
-//if folder not exist, creat efolder
-                mkdir($uploadPath, 0777, true);
-            }
-            if (!move_uploaded_file($file['tmp_name'], $uploadPath . DS . $fileName)) {
-//if file not upload on path, return with flash error
-                $this->Flash->error(__('Fail to upload documents.'));
-                echo 1;
-                die;
-                return false;
-            } else {
-                $documentsTable = TableRegistry::get('Documents');
-                $data['title'] = $this->request->getData('title');
-                $data['description'] = $this->request->getData('description');
-                $data['url'] = $fileName;
-                $documents = $documentsTable->newEntity($data);
-                if ($documentsTable->save($documents)) {
-                    $this->Flash->set('Documents uploaded successful', [
-                        'element' => 'success'
-                    ]);
-                    $this->redirect($this->referer());
-                } else {
-                    $this->Flash->set('Unable to Upload Documents. Please try again later', [
-                        'element' => 'error'
-                    ]);
-                }
-            }
-        }
-    }
-
-    public function blog() {
-        if ($this->request->is('post')) {
-            $file = $this->request->getData('files');
-            $fileName = time();
-            $ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-//set file name with time for unique file name
-            $fileName = $fileName . '.' . $ext;
-            $path = '/img/blogs';
-//set file path for server disk
-            $uploadPath = WWW_ROOT . $path;
-            if (!is_dir($uploadPath)) {
-//if folder not exist, creat efolder
-                mkdir($uploadPath, 0777, true);
-            }
-            if (!move_uploaded_file($file['tmp_name'], $uploadPath . DS . $fileName)) {
-//if file not upload on path, return with flash error
-                $this->Flash->error(__('Fail to upload documents.'));
-                echo 1;
-                die;
-                return false;
-            } else {
-                $blogTable = TableRegistry::get('Blogs');
-                $data['title'] = $this->request->getData('title');
-                $data['short_description'] = $this->request->getData('short_description');
-                $data['long_description'] = $this->request->getData('long_description');
-                $data['url'] = $fileName;
-                $blog = $blogTable->newEntity($data);
-                if ($blogTable->save($blog)) {
-                    $this->Flash->set('Blog uploaded successful', [
-                        'element' => 'success'
-                    ]);
-                    $this->redirect($this->referer());
-                } else {
-                    $this->Flash->set('Unable to Blog Documents. Please try again later', [
-                        'element' => 'error'
-                    ]);
-                }
-            }
-        }
     }
 
 }

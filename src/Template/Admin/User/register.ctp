@@ -51,6 +51,8 @@
                                         <?= $this->Form->create($user, ['class' => 'form-horizontal', 'templates' => false]) ?>
                                         <?= $this->Form->control('company_name') ?>
                                         <?= $this->Form->control('pan_number') ?>
+                                        <?= $this->Form->control('email') ?>
+                                        <?= $this->Form->control('phone_number') ?>
                                         <?= $this->Form->control('password', ['type' => 'password']) ?>
                                         <div class="form-group row m-b-20">
                                             <div class="col-12">
