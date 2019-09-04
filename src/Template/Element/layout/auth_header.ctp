@@ -55,8 +55,14 @@
                 <li>
                     <?= $this->Html->link('<i class="fa fa-shopping-cart"></i> <span>Sales</span><span class="menu-arrow"></span>', 'javascript:void(0)', ['escape' => false]) ?>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><?= $this->Html->link('List Sales', ['controller' => 'Sales', 'action' => 'index']) ?></li>
-                        <li><?= $this->Html->link('Add Sales', ['controller' => 'Sales', 'action' => 'add']) ?></li>
+                        <li><?= $this->Html->link('Customers', ['controller' => 'Sales', 'action' => 'Customers']) ?></li>
+                        <li><?= $this->Html->link('Estimates', ['controller' => 'Sales', 'action' => 'index']) ?></li>
+                        <li><?= $this->Html->link('Sales Orders', ['controller' => 'Sales', 'action' => 'add']) ?></li>
+                        <li><?= $this->Html->link('Delivery Challans', ['controller' => 'Sales', 'action' => 'add']) ?></li>
+                        <li><?= $this->Html->link('Invoices', ['controller' => 'Sales', 'action' => 'add']) ?></li>
+                        <li><?= $this->Html->link('Payments Received', ['controller' => 'Sales', 'action' => 'add']) ?></li>
+                        <li><?= $this->Html->link('Recurring Invoices', ['controller' => 'Sales', 'action' => 'add']) ?></li>
+                        <li><?= $this->Html->link('Credit Notes', ['controller' => 'Sales', 'action' => 'add']) ?></li>
                     </ul>
                 </li>
                 <?php if ($authUser['role'] == 0) { ?>
