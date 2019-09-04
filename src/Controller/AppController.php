@@ -91,7 +91,7 @@ class AppController extends Controller {
 
     public function _isAllowToUesd($user) {
         if ($this->request->getParam('controller') != "Users" || $this->request->getParam('action') != "edit") {
-            if ($user['details_field'] != 1) {
+            if ($user['details_field'] != '1') {
                 $this->redirect(['controller' => 'Users', 'action' => 'edit']);
             }
         }

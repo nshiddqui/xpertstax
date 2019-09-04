@@ -72,6 +72,14 @@ class UsersTable extends Table {
                 ->scalar('role')
                 ->maxLength('role', 20)
                 ->allowEmptyString('role');
+        $validator
+                ->email('email')
+                ->maxLength('email', 225)
+                ->notEmptyString('email');
+        $validator
+                ->integer('phone_number')
+                ->maxLength('phone_number', 225)
+                ->notEmptyString('phone_number');
 
         return $validator;
     }

@@ -72,8 +72,12 @@ class UsersController extends AppController {
             'contain' => ['UserDetails']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
+            $user = $this->Users->patchEntity($user, array_merge($this->request->getData(), ['details_field' => '1']));
             if ($this->Users->save($user)) {
+                if ($id == $this->Auth->user('id')) {
+                    $user = $this->Users->get($user['id'], ['contain' => 'UserDetails'])->toArray();
+                    $this->Auth->setUser($user);
+                }
                 $this->Flash->success(__('The user has been saved.'));
 
                 return $this->redirect(['action' => 'index']);

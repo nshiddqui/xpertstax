@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Model\Table;
 
 use Cake\ORM\Query;
@@ -20,16 +21,15 @@ use Cake\Validation\Validator;
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class UserDetailsTable extends Table
-{
+class UserDetailsTable extends Table {
+
     /**
      * Initialize method
      *
      * @param array $config The configuration for the Table.
      * @return void
      */
-    public function initialize(array $config)
-    {
+    public function initialize(array $config) {
         parent::initialize($config);
 
         $this->setTable('user_details');
@@ -45,22 +45,22 @@ class UserDetailsTable extends Table
      * @param \Cake\Validation\Validator $validator Validator instance.
      * @return \Cake\Validation\Validator
      */
-    public function validationDefault(Validator $validator)
-    {
+    public function validationDefault(Validator $validator) {
         $validator
-            ->integer('user_id')
-            ->allowEmptyString('user_id', null, 'create');
+                ->integer('user_id')
+                ->allowEmptyString('user_id', null, 'create');
 
         $validator
-            ->scalar('first_name')
-            ->maxLength('first_name', 225)
-            ->allowEmptyString('first_name');
+                ->scalar('first_name')
+                ->maxLength('first_name', 225)
+                ->allowEmptyString('first_name');
 
         $validator
-            ->scalar('last_name')
-            ->maxLength('last_name', 225)
-            ->allowEmptyString('last_name');
+                ->scalar('last_name')
+                ->maxLength('last_name', 225)
+                ->allowEmptyString('last_name');
 
         return $validator;
     }
+
 }

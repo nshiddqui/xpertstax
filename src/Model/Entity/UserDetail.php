@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
@@ -11,8 +12,8 @@ use Cake\ORM\Entity;
  * @property string|null $last_name
  * @property \Cake\I18n\FrozenTime|null $modified
  */
-class UserDetail extends Entity
-{
+class UserDetail extends Entity {
+
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -27,4 +28,5 @@ class UserDetail extends Entity
         'last_name' => true,
         'modified' => true
     ];
+
 }

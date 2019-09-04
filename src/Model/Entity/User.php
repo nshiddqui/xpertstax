@@ -32,6 +32,9 @@ class User extends Entity {
         'password' => true,
         'role' => true,
         'field' => true,
+        'email' => true,
+        'phone_number' => true,
+        'details_field'=>true,
         'created' => true,
         'modified' => true,
         'user_detail' => true
