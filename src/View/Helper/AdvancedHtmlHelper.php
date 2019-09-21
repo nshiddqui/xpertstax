@@ -13,7 +13,7 @@ use Cake\View\Helper\HtmlHelper;
 class AdvancedHtmlHelper extends HtmlHelper {
 
     public function image($path, array $options = array()) {
-        $imagePath = $this->Url->image($path, $options);
+        $imagePath = urldecode($this->Url->image($path, $options));
         if (!file_exists(WWW_ROOT . $imagePath)) {
             $path = 'image-not-available.jpg';
         }

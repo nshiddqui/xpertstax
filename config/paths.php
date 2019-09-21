@@ -98,4 +98,4 @@ define('DOC_PATH','/documents/');
  * Blogs Root path
  */
 define('BLOG_ROOT',WWW_ROOT.'/img/blogs/');
-define('BLOG_PATH','/blogs/');
+define('BLOG_PATH','blogs/');

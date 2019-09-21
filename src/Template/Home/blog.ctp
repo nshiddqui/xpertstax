@@ -5,8 +5,8 @@
         ?>
         <div style="width:100%">
             <div class="padding:10px">
-                <div class="grid6column">
-                    <?= $this->Html->image('blogs/'.$blog->url, ['style' => 'width: 338px;height:140px;float: left;margin:0 13px']) ?>
+                <div class="grid6column" style="width:35.5%;">
+                    <?= $this->Html->image(BLOG_PATH . $blog->url, ['style' => 'width: 338px;height:140px;float: left;margin:0 13px']) ?>
                 </div>
                 <div class="grid2column lastcolumn" style="width: 64.5%;">
                     <h4><?= h($blog->title) ?></h4>
