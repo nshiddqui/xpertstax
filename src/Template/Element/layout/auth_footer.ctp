@@ -28,6 +28,8 @@
 <?= $this->Html->script('jquery.app') ?>
 <?= $this->Html->css('/plugins/datatables/dataTables.bootstrap4.min') ?>
 <?= $this->Html->script('/plugins/datatables/jquery.dataTables.min') ?>
+<?= $this->Html->css('/plugins/tooltipster/tooltipster.bundle.min') ?>
+<?= $this->Html->script('/plugins/tooltipster/tooltipster.bundle.min') ?>
 <?= $this->Html->script('/plugins/datatables/dataTables.bootstrap4.min') ?>
 <link href="/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
 <script src="/plugins/bootstrap-select/js/bootstrap-select.js" type="text/javascript"></script>
@@ -78,6 +80,9 @@
         }
     });
     $('.selectpicker').selectpicker();
+    $('.tooltip-title').tooltipster({
+        animation: 'grow'
+    });
     $(document).ready(function () {
         $('form').validate();
     });
